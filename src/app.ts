@@ -1,6 +1,10 @@
 import express from 'express';
+import path from 'path';
+
 const app = express();
 const port = 3000;
+
+app.use(express.static(path.join(__dirname, '../static')));
 
 app.get('/', (req, res) => {
   res.contentType('text/html');
@@ -9,12 +13,10 @@ app.get('/', (req, res) => {
 <html lang="en">
   <head>
     <title>Chess</title>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1>Chess</h1>
-    <p>
-      <button>Go!</button>
-    </p>
+    <h1>Hello World!</h1>
   </body>
 </html>
   `;
